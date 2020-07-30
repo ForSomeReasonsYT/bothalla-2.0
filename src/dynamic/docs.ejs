@@ -52,36 +52,36 @@
 
     <div id="content">
        <center><h1>Api Docs</h1></center>
-       <center><h4>You should follow docs , to make a post for server count!</h4></center>
-       <center><h5>You should make an api post by using node-fetch, follow these steps</h5></center>
-       <center><div class="dark-bg card"><div class="card-header"><h3><strong>How to get Auth Token</strong></h3><br><h5><ul>
-       <li>Go to your profile by click at your name</li>
-       <li>Choose your bot then click edit bot  scroll down  and you will find auth token</li>
-       <li>Also you can regenrate new token if its leaked!</li>
-       <li>store it and don't share  you will need it in the following steps</li>
+       <center><h4>You should follow these docs in order to make the server count work!</h4></center>
+       <center><h5>You should make an api post by using node-fetch</h5></center>
+       <center><div class="dark-bg card"><div class="card-header"><h3><strong>How to get the Authorization Token</strong></h3><br><h5><ul>
+       <li>Go to your profile</li>
+       <li>Choose any of your bots and press EDIT, Then scroll down, There you will find it!</li>
+       <li>Dont worry, If its leaked, you can regenerate it!</li>
+       <li>store it and don't share to anyone</li>
        </ul></h5></div>
        </div></center>
 <code>
-//v12<br>
+//Discord v12<br>
 const Discord = require('discord.js'); <br>
 const client = new Discord.Client();<br>
 const prefix = "!"<br>
 
 client.on('ready', () => {<br>
     console.log(`Logged in as ${client.user.username}`);<br>
-let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch<br>
-fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${client.user.id}`, {<br>
+let fetch = require("node-fetch") //Install Node-Fetch , npm install node-fetch<br>
+fetch(`https://bothalla.herokuapp.com/api/auth/stats/${client.user.id}`, {<br>
         method: "POST",<br>
         headers: {<br>
-        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it<br>
+        Authorization: "Your_Auth_Token",//Follow the up steps to get it<br>
         "Content-Type": "application/json"<br>
         },<br>
-       body: JSON.stringify({"server_count": client.guilds.cache.size}) /////////////////////////////////post real server count not fake we will know<br>
+       body: JSON.stringify({"server_count": client.guilds.cache.size})<br>
       }).then(response => response.text())<br>
   .then(console.log)<br>
   .catch(console.error)<br>
 });<br>
-<br>
+// A Normal Ping Command Under This!<br>
 client.on("message", async message => {<br>
     let args = message.content.substring(prefix.length).split(" ");<br>
     if(message.content.startsWith(prefix +"ping")){<br>
@@ -90,36 +90,8 @@ client.on("message", async message => {<br>
 })<br>
 client.login("token");<br>
 </code>
-<center><h4>The next for discord.js version 11</h4></center>
-<code>// v11<br>
-const Discord = require('discord.js');<br>
-const client = new Discord.Client();<br>
-const prefix = "!"<br>
-<br>
-client.on('ready', () => {<br>
-    console.log(`Logged in as ${client.user.username}`);<br>
-let fetch = require("node-fetch") ///////////////////////////////Install Node-Fetch , npm install node-fetch<br>
-fetch(`https://cyclone-botlist.herokuapp.com/api/auth/stats/${client.user.id}`, {<br>
-        method: "POST",<br>
-        headers: {<br>
-        Authorization: "Your Auth Token",////////////////////////////////////////Follow the up steps to get it<br>
-        "Content-Type": "application/json"<br>
-        },
-       body: JSON.stringify({"server_count": client.guilds.size}) /////////////////////////////////post real server count not fake we will know<br>
-      }).then(response => response.text())<br>
-  .then(console.log)<br>
-  .catch(console.error)<br>
-})<br>
-<br>
-client.on("message", async message => {<br>
-    let args = message.content.substring(prefix.length).split(" ");<br>
-    if(message.content.startsWith(prefix +"ping")){<br>
-    message.channel.send("Pong! " + client.ws.ping + "ms")<br>
-       }<br>
-})<br>
-client.login("token")<br>
-  </code>
-  <center><h6>All right reserved for cyclone list</h6></center>
+
+  <center><h6>All Rights Reserved Bothalla List ™t</h6></center>
 
 </body>
 
