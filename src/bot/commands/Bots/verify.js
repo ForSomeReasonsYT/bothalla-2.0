@@ -17,13 +17,13 @@ module.exports = class extends Command {
         let bot = await Bots.findOne({botid: user.id}, { _id: false })
         await Bots.updateOne({ botid: user.id }, {$set: { state: "verified" } })
         let e = new MessageEmbed()
-            .setTitle('Bot Verified')
+            .setTitle('Bot Accepted')
             .addField(`Bot`, `<@${bot.botid}>`, true)
             .addField(`Owner`, `<@${bot.owners[0]}>`, true)
             .addField("Mod", message.author, true)
             .setThumbnail(bot.logo)
             .setTimestamp()
-            .setColor(0x26ff00)
+            .setColor("RANDOM")
         modLog.send(e);
         modLog.send(`<@${bot.owners[0]}>`).then(m => { m.delete() });
 
