@@ -17,4 +17,4 @@ A bot list where you can find discord bots to spice up your server.
  - Search option
  - Easy setup (all customisation features in one file)
  - Discord bot for bot verification
- - Server count API
+ - Server count API 
