@@ -2,7 +2,7 @@ const { Command } = require('klasa');
 const { MessageEmbed } = require('discord.js');
 const Bots = require("@models/bots");
 const BotOnce = require("@models/voted");
-var modLog;
+var voteLog;
 
 module.exports = class extends Command {
     constructor(...args) {
@@ -46,11 +46,11 @@ let e = new MessageEmbed()
 .setThumbnail(bot.logo)
 .setTimestamp()
 .setColor(0x26ff00)
-modLog.send(e);
-modLog.send(`${message.author}`).then(m => { m.delete() });
+voteLog.send(e);
+voteLog.send(`${message.author}`).then(m => { m.delete() });
             })
     }
  async init() {
-       modLog = this.client.channels.cache.get(process.env.MOD_LOG_ID);
+       voteLog = this.client.channels.cache.get(process.env.VOTE_LOG_ID);
    }
 };
